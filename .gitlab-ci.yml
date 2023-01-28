@@ -7,4 +7,5 @@ build:
 
     script:
       - npm run build
+      - sed -i -z "s/ removeAllListeners()\n/ removeAllListeners();process.nextTick(() => process.exit(code || 0));\n/g" node_modules/karma/lib/server.js
       - npm run test
