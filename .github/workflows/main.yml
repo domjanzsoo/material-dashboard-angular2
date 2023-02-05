@@ -1,4 +1,4 @@
-name: Run CI
+name: main
 on:
   push:
     branches: [ master ]
