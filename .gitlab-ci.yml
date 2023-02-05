@@ -1,11 +1,17 @@
-build:
-  stage: build
-  image: svaseghi/node-chrome:v1
-  before_script:
-    - export CHROME_BIN=/usr/bin/google-chrome
-    - npm ci
+stages:
+  - test
 
-    script:
-      - npm run build
-      - sed -i -z "s/ removeAllListeners()\n/ removeAllListeners();process.nextTick(() => process.exit(code || 0));\n/g" node_modules/karma/lib/server.js
-      - npm run test
+test:
+  image: node:12-alpine
+  stage: test
+  script:
+    - npm install
+    - ng test
+  only:
+    - master
+  cache:
+    key:
+      files:
+        -package-lock.json
+  paths:
+    - node_modules
