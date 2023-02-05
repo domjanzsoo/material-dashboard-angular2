@@ -20,6 +20,4 @@ jobs:
           node-version: $
 
       - name: Testd
-        run: |
-          npm ci
-          npm run build:ci
+        run: npm run test-ci
