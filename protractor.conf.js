@@ -11,9 +11,6 @@ exports.config = {
   ],
   capabilities: {
     'browserName': 'chrome',
-    chromeOption: {
-      args: ["--headless"]
-    }
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
