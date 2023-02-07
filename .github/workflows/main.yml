@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: npm install
-      - run: npm install
+        run: npm install
       - name: angular testing
-      - run: npm run test-ci
+        run: npm run test-ci
