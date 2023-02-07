@@ -12,5 +12,7 @@ jobs:
     steps:
       - name: npm install
         run: npm install
+        with:
+          persist-credentials: false
       - name: angular testing
         run: npm run test-ci
