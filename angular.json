@@ -168,15 +168,6 @@
     }
   },
   "defaultProject": "material-dashboard-angular",
-  "schematics": {
-    "@schematics/angular:component": {
-      "prefix": "app",
-      "style": "scss"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
-    }
-  },
   "cli": {
     "analytics": false
   }
