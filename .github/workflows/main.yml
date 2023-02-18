@@ -1,17 +1,24 @@
 name: main
 on:
   push:
-    branches: [ master ]
+    branches: ['master']
   pull_request:
-    branches: [ master ]
+    branches: ['master']
 
 jobs:
-  Run-npm-on-Ubuntu:
-    name: Run npm
-    runs-on: 'ubuntu-latest'
+  Testing:
+    name: Run npm install & test
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          node-version: '14'
-      - run: npm help
+          persist-credentials: false
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: npm ci
+        run: npm ci
+      - name: angular testing
+        run: npm run test-ci
